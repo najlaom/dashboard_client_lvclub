@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "dash-espaceClient"
+    }
+  },
+  "defaultProject": "dash-espaceClient",
+  "cli": {
+    "analytics": "100d48b4-10e8-478d-9361-b26dd000d7b2"
+  }
 }
