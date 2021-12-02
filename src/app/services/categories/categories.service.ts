@@ -12,7 +12,7 @@ export class CategoriesService {
 
   constructor(private http: HttpClient) { }
 
-  addCategory(name: string, slug: string, fileToUpload: File, parentId: string): Observable<any> {
+  addCategory(name: any, slug: any, fileToUpload: File, parentId: any): Observable<any> {
     var formData: FormData = new FormData();
     formData.append("name", name);
     formData.append("slug", slug);

@@ -8,6 +8,8 @@ import { ListEmployeesComponent } from './pages/employee/list-employees/list-emp
 import { LoginComponent } from './pages/login/login.component';
 import { AddProductComponent } from './pages/products/add-product/add-product.component';
 import { ListProductsComponent } from './pages/products/list-products/list-products.component';
+import { AddTableComponent } from './pages/tables/add-table/add-table.component';
+import { ListTablesComponent } from './pages/tables/list-tables/list-tables.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 
@@ -37,6 +39,12 @@ const routes: Routes = [
       },
       {
         path: 'add-product', component: AddProductComponent
+      },
+      {
+        path: 'tables', component: ListTablesComponent
+      },
+      {
+        path: 'add-table', component: AddTableComponent
       },
     ]
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 
 @Component({
@@ -11,8 +12,14 @@ export class AddCategorieComponent implements OnInit {
   imageUrl : string =''; 
   fileToUpload : File = null ;
   listCategories: any = [];
-
-  constructor(private categoryService: CategoriesService) { }
+  myForm: FormGroup;
+  constructor(private categoryService: CategoriesService,
+    private fb: FormBuilder) { 
+      this.myForm = this.fb.group({    
+        name :  new FormControl('', [Validators.required]),
+        
+      })
+    }
 
   async ngOnInit(){
     await this.getCategories();

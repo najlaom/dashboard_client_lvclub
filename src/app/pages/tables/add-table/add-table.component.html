@@ -1,0 +1,37 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> Basic Tables </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" routerLink="/tables">Tables</a></li>
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" routerLinkActive="active">Ajouter
+                    une table</a>
+                </li>
+            </ul>
+            <div class="card-body">
+                <form class="form-inline">
+                    <label class="sr-only" for="inlineFormInputName2">Name</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Numero table"
+                    [(ngModel)]="table.num_table" name="num_table">
+                  
+                    
+                    <button type="submit" class="btn btn-primary mb-2" (click)="addTable()">Submit</button>
+                  
+                  </form>
+               
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Quick Action Toolbar Starts-->
+
+</div>

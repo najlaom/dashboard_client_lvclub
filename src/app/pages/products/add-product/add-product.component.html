@@ -1,1 +1,145 @@
-<p>add-product works!</p>
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> Basic Tables </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" routerLink="/products">Produits</a></li>
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" routerLinkActive="active">Ajouter
+                    une produit</a>
+                </li>
+            </ul>
+            <div class="card-body">
+                <form class="forms-sample">
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label>Produit<span style="color:red"> *</span></label>
+                            <input type="text" class="form-control" placeholder="name" id="name" #name name="name"
+                                formControlName="Catégorie">
+                            <div class="invalid-feedback">
+                                <div>Entrez le nom de produit</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Slug <span style="color:red"> *</span></label>
+                            <input type="text" class="form-control" placeholder="Slug" id="slug" #slug name="slug"
+                                formControlName="slug">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Catégories <span style="color:red"> *</span></label>
+                            <select class="form-control show-tick" (change)="selectCategory($event)">
+                                <option>
+                                    selectionnez une categorie
+                                </option>
+                                <option *ngFor="let cat of CategoryList" [value]="cat._id">
+                                    {{cat.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label>Quantité <span style="color:red"> *</span></label>
+                            <input type="text" class="form-control" placeholder="Quantité" #quantity name="quantity"
+                                required="" id="quantity" formControlName="quantity">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Prix <span style="color:red"> *</span></label>
+                            <input type="text" class="form-control" placeholder="Prix" #price name="price" required=""
+                                id="price" formControlName="price">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Prix <span style="color:red"> *</span></label>
+                            <input type="text" class="form-control" placeholder="Offre" #offer name="offer" required=""
+                                id="offer" formControlName="offer">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default form-control-file" #image
+                            accept="image/png,image/gif,image/jpeg,image/jpg"
+                            (change)="handleFileInput($event.target.files)">
+                        <div class="input-group col-xs-12">
+                            <input type="text" class="form-control file-upload-info" disabled
+                                placeholder="Upload Image">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-8">
+                                <label>Sous Produit</label>
+                            </div>
+                            <div class="col-3">
+                                <label>Qté</label>
+                            </div>
+                            <div class="col-1">
+                                <label></label>
+                            </div>
+                        </div>
+                        <hr color="#4285F4">
+                    </div>
+                    <div class="col-sm-12 mb-3">
+                        <div class="form-row">
+                            <div class="col-sm-12">
+                                <form [formGroup]="formSubProduct">
+                                    <div formArrayName='subproducts'>
+                                        <div *ngFor="let subProductGroup of SubProductFormGroups.controls; let iPrd = index;"
+                                            [formGroupName]="iPrd">
+                                            <div class="form-row">
+                                                <div class="col-sm-6 mb-3">
+                                                    <input type="text"
+                                                        formControlName="name"
+                                                        class="form-control"
+                                                        placeholder="Name" />
+                                                </div>
+                                                <div class="col-sm-5 mb-3">
+                                                    <input type="text"
+                                                        formControlName="quantity"
+                                                        class="form-control"
+                                                        placeholder="Quantité" />
+                                                </div>
+
+                                                <div class="col-sm-1 mb-3 text-primary">
+                                                    <a (click)="deleteSubProductGroup(iPrd)"><i
+                                                            class="mdi mdi-minus-circle">
+                                                        </i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 text-primary">
+                                            <a class="float-right"
+                                                (click)="addNewSubProductGroup()"><i
+                                                    class="mdi mdi-plus-circle"></i> Ajouter
+                                                un produit</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2"
+                        (click)="OnSubmit(name, slug, price, offer, quantity, image)">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Quick Action Toolbar Starts-->
+
+</div>

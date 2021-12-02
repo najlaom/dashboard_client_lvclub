@@ -11,36 +11,34 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link active" data-toggle="tab">Produits</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" routerLink="/add-product"
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab">Tables</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" routerLink="/add-table"
                         routerLinkActive="active">Ajouter
-                        un produit</a>
+                        un table</a>
                 </li>
             </ul>
             <div class="card-body">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>Produits</th>
-                            <th >Prix</th>
-                            <th class="d-none d-md-table-cell">Quantite</th>
-                            <th class="d-none d-md-table-cell">Image</th>
-                            <th>Categorie</th>
+                            <th>numéro</th>
+                            <th >QR Code</th>
                             <th>Status</th>
                           
                         </tr>
                     </thead>
-                    <tbody *ngFor="let dataProduct of listProducts">
+                    <tbody *ngFor="let table of listTable">
                         <tr >
                             <td class="py-1">
-                                {{dataProduct.name}}
+                                {{table.num_table}}
                             </td>
-                            <td> {{dataProduct.price}} </td>
+                            <td> <qrcode print [width]="100" [elementType]="'svg'" [qrdata]="table._id" [errorCorrectionLevel]="'M'">
+                            </qrcode></td>
                             <td>
-                                {{dataProduct.quantity}}
+                                <label class="badge badge-success"> {{table.state}}</label>
+                              
                             </td>
-                            <td><img src="{{dataProduct.productPicture}}" style="width:100px;height:100px"> </td>
-                            <td> {{dataProduct.category.name}}</td>
+                           
                         </tr>
 
                     </tbody>
