@@ -1,0 +1,121 @@
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> Basic Tables </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" routerLink="/employees">Employés</a></li>
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" routerLinkActive="active">Ajouter
+                        un employe</a>
+                </li>
+            </ul>
+            <div class="card-body">
+                <div class="card-body">
+                    <form class="forms-sample" name="myForm" [formGroup]="myForm">
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label>Prénom<span style="color:red"> *</span></label>
+                                <input type="text" class="form-control" placeholder="Prénom" id="firstName" #firstName
+                                    name="firstName" formControlName="firstName"
+                                    [ngClass]="{'is-invalid':myForm.controls['firstName'].touched && myForm.controls['firstName'].invalid,
+                                    'is-valid':myForm.controls['firstName'].touched && myForm.controls['firstName'].valid}">
+                                <div class="invalid-feedback">
+                                    <div>Entrez votre prénom</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label>Nom <span style="color:red"> *</span></label>
+                                <input type="text" class="form-control" placeholder="Nom" id="lastName" #lastName
+                                    name="lastName" formControlName="lastName"
+                                    [ngClass]="{'is-invalid':myForm.controls['lastName'].touched && myForm.controls['lastName'].invalid,
+                                    'is-valid':myForm.controls['lastName'].touched && myForm.controls['lastName'].valid}">
+                                <div class="invalid-feedback">
+                                    <div>Entrez votre nom</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label>Email <span style="color:red"> *</span></label>
+                                <input type="email" class="form-control" placeholder="Email" #email required=""
+                                    id="email" formControlName="email" [ngClass]="{'is-invalid':myForm.controls['email'].touched && myForm.controls['email'].invalid,
+                                    'is-valid':myForm.controls['email'].touched && myForm.controls['email'].valid}">
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label>User name <span style="color:red"> *</span></label>
+                                <input type="text" class="form-control" placeholder="Username" #username name="username"
+                                    required="" id="username" formControlName="username" [ngClass]="{'is-invalid':myForm.controls['username'].touched && myForm.controls['username'].invalid,
+                                'is-valid':myForm.controls['username'].touched && myForm.controls['username'].valid}">
+                                <div class="invalid-feedback">
+                                    <div>Entrez votre username</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label>Password <span style="color:red"> *</span></label>
+                                <input type="password" class="form-control form-control-lg" id="exampleInputPassword1"
+                                    placeholder="Password" #password required="" id="password"
+                                    formControlName="password" [ngClass]="{'is-invalid':myForm.controls['password'].touched && myForm.controls['password'].invalid,
+                                'is-valid':myForm.controls['password'].touched && myForm.controls['password'].valid}">
+                                <div *ngIf="myForm.controls['password'].touched && myForm.controls['password'].invalid"
+                                    class="invalid-feedback">
+                                    <div *ngIf="myForm.controls['password'].errors?.required">Entrez
+                                        votre mot de passe</div>
+                                    <div *ngIf="myForm.controls['password'].hasError('minlength')">Tappez le
+                                        mot de passe (6 caractères) </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label>Rôle<span style="color:red"> *</span></label>
+                                <select class="form-control show-tick" id="role" name="role" formControlName="role"
+                                    [ngClass]="{'is-invalid':myForm.controls['role'].touched && myForm.controls['role'].invalid,
+                                    'is-valid':myForm.controls['role'].touched && myForm.controls['role'].valid}"
+                                    (change)="selectRoleEmploye($event)">
+                                    <option [value]="role" *ngFor="let role of rolesEmploye">
+                                        {{role}}</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    <div>Entrez votre identifiant </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>File upload</label>
+                            <input type="file" name="img[]" class="file-upload-default">
+                            <div class="input-group col-xs-12">
+                                <input type="text" class="form-control file-upload-info" disabled
+                                    placeholder="Upload Image">
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputCity1">City</label>
+                            <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleTextarea1">Textarea</label>
+                            <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2"
+                            (click)="registerEmploye(firstName,lastName, email,username,password)">Submit</button>
+                        <button class="btn btn-light">Cancel</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Quick Action Toolbar Starts-->
+
+</div>
