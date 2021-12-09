@@ -16,5 +16,8 @@ export class UserService {
         "password": password
       });
   }
+  inLogin(){
+    return !!localStorage.getItem('token')
+  }
  
 }

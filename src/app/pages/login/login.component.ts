@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("lastName", this.user.user.lastName);
           localStorage.setItem("username", this.user.user.username);
           localStorage.setItem("role", this.user.user.role);
+          localStorage.setItem("LogoImage", this.user.user.LogoImage);
           localStorage.setItem("_id", this.user.user._id);
           console.log(localStorage.getItem("_id"))
           this._router.navigate(['./dashboard']);

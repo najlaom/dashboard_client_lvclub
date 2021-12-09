@@ -1,13 +1,4 @@
 <div class="content-wrapper">
-    <div class="page-header">
-        <h3 class="page-title"> Basic Tables </h3>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
-            </ol>
-        </nav>
-    </div>
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <ul class="nav nav-tabs">
@@ -22,24 +13,45 @@
                     <thead>
                         <tr>
                             <th>numéro</th>
-                            <th >QR Code</th>
+                            <th>QR Code</th>
                             <th>Status</th>
-                          
+                            <th>Action</th>
+
                         </tr>
                     </thead>
                     <tbody *ngFor="let table of listTable">
-                        <tr >
-                            <td class="py-1">
-                                {{table.num_table}}
-                            </td>
-                            <td> <qrcode print [width]="100" [elementType]="'svg'" [qrdata]="table._id" [errorCorrectionLevel]="'M'">
-                            </qrcode></td>
-                            <td>
-                                <label class="badge badge-success"> {{table.state}}</label>
-                              
-                            </td>
-                           
-                        </tr>
+                      
+                            <tr>
+                                <td class="py-1">
+                                    {{table.num_table}}
+                                </td>
+                                <td>
+                                    <qrcode print [width]="80" [elementType]="'svg'" [qrdata]="table._id"
+                                        [errorCorrectionLevel]="'M'">
+                                    </qrcode>
+                                </td>
+                                <td>
+                                    <label class="badge badge-success"> {{table.state}}</label>
+
+                                </td>
+                                <td>
+                                    <a class="btn btn-default waves-effect waves-float btn-sm waves-green">
+                                        <div class="col-sm-6 col-md-4 col-lg-3">
+                                            <div class="preview"> <i class="icon-plus"></i> icon-plus </div>
+                                          </div></a>
+                                    <a mwlConfirmationPopover [popoverTitle]="popoverTitle"
+                                        [popoverMessage]="popoverMessage" placement="left"
+                                        (confirm)="removeClient(client)" (cancel)="cancelClicked = true"
+                                        class="btn btn-default waves-effect waves-float btn-sm waves-red">
+                                        <i class="delete"></i></a>
+                                    <a class="btn btn-default waves-effect waves-float btn-sm waves-green">
+                                        <i class="shopping-cart"></i></a>
+
+
+                                </td>
+
+                            </tr>
+                      
 
                     </tbody>
                 </table>

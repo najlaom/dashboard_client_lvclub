@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class AddCategorieComponent implements OnInit {
   listCategories: any = [];
   myForm: FormGroup;
   constructor(private categoryService: CategoriesService,
+    private _router: Router,
     private fb: FormBuilder) { 
       this.myForm = this.fb.group({    
         name :  new FormControl('', [Validators.required]),
@@ -44,7 +46,9 @@ export class AddCategorieComponent implements OnInit {
         image.value =null;
         parentId.value = null;
        
-       
+  
+        this._router.navigate(['./categories']);
+
         
       }, (error) => {
         if(error.status == 400){

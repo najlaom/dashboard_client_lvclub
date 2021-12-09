@@ -9,7 +9,7 @@ export const environment = {
   apiLoginUser: apiUrl+"api/user/signin",
   apiAddEmploye: apiUrl+"api/employe/addEmploye",
   apiGetEmployes: apiUrl+"api/employe/getEmployes",
-  apiProducts: apiUrl+ "api/product/getProducts",
+  apiProducts: apiUrl+ "api/products/getProducts",
   apiCategories: apiUrl+ "api/category/getCategories",
   apiAddCategory: apiUrl + "api/category/create",
   apiAddProduct: apiUrl+ "api/product/addProduct",

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TablesService } from 'src/app/services/tables/tables.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class AddTableComponent implements OnInit {
 
   table: any = {}
 
-  constructor(private _apiTableService: TablesService) { }
+  constructor(private _apiTableService: TablesService,
+    private _router: Router) { }
 
   async ngOnInit() {
    
@@ -25,6 +27,7 @@ export class AddTableComponent implements OnInit {
       (data) => {
         console.log(data);
         // this.router.navigateByUrl('/fournisseurs', { skipLocationChange: true })
+        this._router.navigate(['./tables']);
       },
       error => {
         console.log(error)

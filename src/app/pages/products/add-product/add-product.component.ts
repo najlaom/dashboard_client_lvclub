@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 
@@ -20,7 +21,8 @@ export class AddProductComponent implements OnInit {
   constructor(
     private apiProductService: ProductsService,
     private apiCategoryService: CategoriesService,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private _router: Router) {
 
     this.formSubProduct = fb.group({
       subproducts: fb.array([])
@@ -100,7 +102,7 @@ export class AddProductComponent implements OnInit {
           quantity.value = null;
           image.value = null;
 
-
+          this._router.navigate(['./products']);
 
           console.log(response)
 

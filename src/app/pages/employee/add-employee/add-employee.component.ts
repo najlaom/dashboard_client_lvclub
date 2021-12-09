@@ -42,13 +42,13 @@ export class AddEmployeeComponent implements OnInit {
       (data) => {
       console.log(data)
       this.user = data
-     
-      localStorage.setItem("email", this.user.user.email)
+      localStorage.setItem("token", this.user.token)
+      localStorage.setItem("email", this.user.employe.email)
       console.log(localStorage.getItem("email"))
-      console.log( localStorage.setItem("username", this.user.user.username))
-      localStorage.setItem("firstName", this.user.user.firstName)
-      localStorage.setItem("lastName", this.user.user.lastName)
-      localStorage.setItem("role", this.user.user.role)
+      console.log( localStorage.setItem("username", this.user.employe.username))
+      localStorage.setItem("firstName", this.user.employe.firstName)
+      localStorage.setItem("lastName", this.user.employe.lastName)
+      localStorage.setItem("role", this.user.employe.role)
       this._router.navigate(['./users']);
       
     },

@@ -14,6 +14,7 @@ export class SidebarComponent implements OnInit {
   idUser: any = '';
   token: any = '';
   role: any = '';
+  logo: any = '';
   constructor( private _router: Router) { }
 
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class SidebarComponent implements OnInit {
     this.idUser = localStorage.getItem('_id');
     console.log(localStorage.getItem('_id'));
     this.role = localStorage.getItem('role');
+    this.logo = localStorage.getItem('LogoImage');
     console.log(localStorage.getItem('role'));
   }
   logout(){

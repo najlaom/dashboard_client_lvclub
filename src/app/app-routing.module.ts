@@ -10,17 +10,24 @@ import { AddProductComponent } from './pages/products/add-product/add-product.co
 import { ListProductsComponent } from './pages/products/list-products/list-products.component';
 import { AddTableComponent } from './pages/tables/add-table/add-table.component';
 import { ListTablesComponent } from './pages/tables/list-tables/list-tables.component';
+import { AuthUserGuard } from './services/espace-client/auth-user.guard';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
   {
     path: 'login', component: LoginComponent
   },
   {
     path: '', component: SidebarComponent, children: [
       {
-        path: 'dashboard', component: DashboardComponent
+        path: 'dashboard', component: DashboardComponent,
+        canActivate: [AuthUserGuard]
       },
       {
         path: 'employees', component: ListEmployeesComponent

@@ -11,10 +11,8 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link active" data-toggle="tab">Produits</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" routerLink="/add-product"
-                        routerLinkActive="active">Ajouter
-                        un produit</a>
+                <li class="nav-item"><a class="nav-link active">Produits</a></li>
+                <li class="nav-item"><a class="nav-link" href="/add-product">Ajouter un produit</a>
                 </li>
             </ul>
             <div class="card-body">
@@ -39,7 +37,7 @@
                             <td>
                                 {{dataProduct.quantity}}
                             </td>
-                            <td><img src="{{dataProduct.productPicture}}" style="width:100px;height:100px"> </td>
+                            <td><img src="{{'http://localhost:3000/public/products/'+ dataProduct.productPicture}}" style="width:60px;height:60px"> </td>
                             <td> {{dataProduct.category.name}}</td>
                         </tr>
 
